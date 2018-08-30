@@ -3,14 +3,62 @@
     <head></head>
     <body>
         <h1>Percentage Calculators</h1>
-        <p>X is what % of Y?</p>
-        <form id = "xIsWhatPercentOfY">
-            <input type="text" id="numField1"> is what % of
-            <input type="text" id="numField2"> ? <br><br>
+        <select id="problemType" Onchange=displayProblem()>
+            <option selected disabled>Select Problem</option>
+            <option value="xIsWhatPercentOfY">X is what % of Y?</option>
+            <option value="whatIsYPercentOfX">What is Y% of X?</option>
+            <option value="xisYPercentOfWhat">X is Y% of what?</option>
+            <option value="whatPercentOfXIsY">What % of X is Y?</option>
+            <option value="xPercentOfWhatIsY">X% of what is Y?</option>
+            <option value="yPercentOfXIsWhat">Y% of X is what?</option>
+        </select>
+
+        <form class="problem" id="xIsWhatPercentOfY" style="display: none">
+            <p>X is what % of Y?</p>
+            <input type="text" placeholder="X Value" id="xIsWhatPercentOfYnumFieldX"> is what % of
+            <input type="text" placeholder="Y Value" id="xIsWhatPercentOfYnumFieldY">? <br><br>
             <input type="submit" value="Calculate">
         </form>
+
+        <form class="problem" id="whatIsYPercentOfX" style="display: none">
+            <p>What is Y% of X?</p>
+            What is
+            <input type="text" placeholder="Y Value" id="whatIsYPercentOfXnumFieldY">% of
+            <input type="text" placeholder="X Value" id="whatIsYPercentOfXnumFieldX">? <br><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        <form class="problem" id="xisYPercentOfWhat" style="display: none">
+            <p>X is Y% of what?</p>
+            <input type="text" placeholder="X Value" id="xisYPercentOfWhatnumFieldX"> is
+            <input type="text" placeholder="Y Value" id="xisYPercentOfWhatnumFieldY"> % of what? <br><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        <form class="problem" id="whatPercentOfXIsY" style="display: none">
+            <p>What % of X is Y?</p>
+            What % of
+            <input type="text" placeholder="X Value" id="whatPercentOfXIsYnumFieldX"> is
+            <input type="text" placeholder="Y Value" id="whatPercentOfXIsYnumFieldY">? <br><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        <form class="problem" id="xPercentOfWhatIsY" style="display: none">
+            <p>X% of what is Y?</p>
+            <input type="text" placeholder="X Value" id="xPercentOfWhatIsYnumFieldX">% of what is
+            <input type="text" placeholder="Y Value" id="xPercentOfWhatIsYnumFieldY">? <br><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        <form class="problem" id="yPercentOfXIsWhat" style="display: none">
+            <p>Y% of X is what?</p>
+            <input type="text" placeholder="Y Value" id="yPercentOfXIsWhatnumFieldY">% of
+            <input type="text" placeholder="X Value" id="yPercentOfXIsWhatnumFieldX"> is what? <br><br>
+            <input type="submit" value="Calculate">
+        </form>
+
 <!--        <button onclick="myOncliker()">Caculate</button>-->
-        <h3 id = "resultField"></h3>
+        <h3 id="resultField"></h3>
         <script type="text/javascript" src="calculator.js"></script>
     </body>
 </html>

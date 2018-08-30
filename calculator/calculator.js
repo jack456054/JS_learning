@@ -1,22 +1,52 @@
-var numField1 = document.getElementById('numField1');
-var numField2 = document.getElementById('numField2');
-var resultField = document.getElementById('resultField');
-var form = document.getElementById('xIsWhatPercentOfY');
+var problemID;
 
-
-form.addEventListener('submit', function(event){
-    if (!numField1.value || !numField2.value) {
-        alert("Please enter values in the field!")
+function displayProblem() {
+    if (problemID) {
+        document.getElementById(problemID).setAttribute("style", "display: none");
     }
-    else {
-        var x = parseFloat(numField1.value);
-        var y = parseFloat(numField2.value);
-        
-        var result = x / y;
-        var percent = result * 100;
-        
-        resultField.innerText = "Answer: " + percent + "%";
+    problemID = document.getElementById('problemType').value;
+    var form = document.getElementById(problemID);
+    var numFieldX = document.getElementById(problemID + 'numFieldX');
+    var numFieldY = document.getElementById(problemID + 'numFieldY');
+    var resultField = document.getElementById('resultField');
+    numFieldX.value = "";
+    numFieldY.value = "";
+    resultField.innerText = "";
+    form.setAttribute("style", "display: default");
+    form.addEventListener('submit', function (event) {
+        if (!numFieldX.value || !numFieldY.value) {
+            alert("Please enter values in the field!");
+        } else {
+            var x = parseFloat(numFieldX.value);
+            var y = parseFloat(numFieldY.value);
+            var percent;
+            switch(problemID) {
+
+                case "xIsWhatPercentOfY":
+                    resultField.innerText = "Answer: " + x / y * 100 + "%";
+                    break;
+
+                case "whatIsYPercentOfX":
+                    resultField.innerText = "Answer: " + x * (y / 100);
+                    break;
+
+                case "xisYPercentOfWhat":
+                    resultField.innerText = "Answer: " + x / y * 100;
+                    break;
+
+                case "whatPercentOfXIsY":
+                    resultField.innerText = "Answer: " + y / x * 100 + "%";
+                    break;
+
+                case "xPercentOfWhatIsY":
+                    resultField.innerText = "Answer: " + y / x * 100;
+                    break;
+
+                case "yPercentOfXIsWhat":
+                    resultField.innerText = "Answer: " + x * (y / 100);
+                    break;
+            }
+        }
         event.preventDefault();
-    }
-    
-});
+    });
+}
